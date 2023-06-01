@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "D:/Program Files/Qt/6.1.0/mingw81_64/lib/cmake")
+set(CMAKE_PREFIX_PATH "") //set the path for the cmake located in the Qt directory 
 
 find_package(Qt6 COMPONENTS
         Core
