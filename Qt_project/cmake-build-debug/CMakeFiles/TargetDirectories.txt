@@ -1,0 +1,5 @@
+C:/Users/Lenovo/Documents/GitHub/a89-Stefan-code-eng1/Qt_project/cmake-build-debug/CMakeFiles/Qt_project.dir
+C:/Users/Lenovo/Documents/GitHub/a89-Stefan-code-eng1/Qt_project/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Lenovo/Documents/GitHub/a89-Stefan-code-eng1/Qt_project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Lenovo/Documents/GitHub/a89-Stefan-code-eng1/Qt_project/cmake-build-debug/CMakeFiles/Qt_project_autogen_timestamp_deps.dir
+C:/Users/Lenovo/Documents/GitHub/a89-Stefan-code-eng1/Qt_project/cmake-build-debug/CMakeFiles/Qt_project_autogen.dir
