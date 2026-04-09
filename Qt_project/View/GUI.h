@@ -1,13 +1,15 @@
 #ifndef QT_PROJECT_GUI_H
 #define QT_PROJECT_GUI_H
 
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QPushButton>
 #include "../Service/User.h"
 #include "../Service/Admin.h"
 #include "AdminGUI.h"
 #include "UserGUI.h"
+
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QScreen>
 
 template <typename Elem>
 class GUI: public QWidget{
@@ -46,16 +48,14 @@ template<typename Elem>
 void GUI<Elem>::configure() {
     auto* main_layout = new QVBoxLayout{this};
 
-
     this->hlayout = new QHBoxLayout{};
 
     this->admin_btn = new QPushButton{"Admin"};
     this->user_btn = new QPushButton{"User"};
 
-
+    // Make buttons expand
     this->admin_btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     this->user_btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
 
     this->hlayout->addWidget(this->admin_btn);
     this->hlayout->addWidget(this->user_btn);
@@ -65,6 +65,18 @@ void GUI<Elem>::configure() {
     main_layout->setStretch(0, 1);
     this->hlayout->setStretch(0, 1);
     this->hlayout->setStretch(1, 1);
+
+
+    this->resize(200, 200);
+
+
+    QScreen* screen = QGuiApplication::primaryScreen();
+    if (screen) {
+        QRect screenGeometry = screen->geometry();
+        int x = (screenGeometry.width() - width()) / 2;
+        int y = (screenGeometry.height() - height()) / 2;
+        this->move(x, y);
+    }
 }
 
 template<typename Elem>

@@ -17,6 +17,8 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QScreen>
+#include <QGuiApplication>
 
 typedef Movie Elem;
 

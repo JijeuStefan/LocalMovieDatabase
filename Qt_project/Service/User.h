@@ -84,7 +84,7 @@ std::vector<Elem> User<Elem>::get_movies_genre(const std::string& genre) {
     std::vector<Elem> movies = this->repo.get_repo();
     std::vector<Elem> movie_list(this->repo.size());
 
-    if (genre == "all")
+    if (genre == "All")
         return this->repo.get_repo();
 
     auto it = std::copy_if(movies.begin(),movies.end(),movie_list.begin(),[&genre](Elem elem){return elem.get_genre() == genre;});

@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "") #put your Qt folder path
+set(CMAKE_PREFIX_PATH "C:\\Qt\\6.11.0\\mingw_64") #put your Qt folder path
 
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 

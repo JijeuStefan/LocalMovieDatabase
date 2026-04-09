@@ -6,6 +6,7 @@
 #include <QUrl>
 #include "../Service/User.h"
 #include <windows.h>
+#include <QComboBox>
 
 template <typename Elem>
 class UserGUI: public QWidget{
@@ -23,7 +24,7 @@ private:
     QHBoxLayout* hlayout_scroll;
     QVBoxLayout* vlayout_watchlist;
     QPushButton* search_btn;
-    QLineEdit* genre;
+    QComboBox* genre;
     QPushButton* add_btn;
     QPushButton* open_trailer_btn;
 
@@ -85,8 +86,10 @@ void UserGUI<Elem>::configure() {
     this->resize(800, 600);
     this->hlayout = new QHBoxLayout{this};
 
+    this->genre = new QComboBox{};
+    this->genre->addItems({"All", "Action", "Drama", "Comedy"});
+
     this->search_btn = new QPushButton{"Search"};
-    this->genre = new QLineEdit{};
 
     this->movies = new QListWidget{};;
 
@@ -165,7 +168,7 @@ void UserGUI<Elem>::signal_slot() {
 
 template<typename Elem>
 void UserGUI<Elem>::populate_movie_list() {
-    std::string selected_genre = this->genre->text().toStdString();
+    std::string selected_genre = this->genre->currentText().toStdString();
 
     this->movies->clear();
     this->movies_genre = this->user.get_movies_genre(selected_genre);
@@ -263,6 +266,7 @@ void UserGUI<Elem>::exit_user() {
 template<typename Elem>
 void UserGUI<Elem>::showEvent(QShowEvent *event) {
     QWidget::showEvent(event);
+    this->genre->setCurrentText("All");
     this->populate_movie_list();
     this->populate_watch_list();
 }

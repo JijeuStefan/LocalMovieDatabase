@@ -5,6 +5,16 @@ StartApp::StartApp(FileRepo<Elem>& repo,const std::string& path) :user(repo), ad
     this->path = path;
     this->configure();
     this->signal_slot();
+
+    this->resize(200, 200);
+
+    QScreen* screen = QGuiApplication::primaryScreen();
+    if (screen) {
+        QRect screenGeometry = screen->geometry();
+        int x = (screenGeometry.width() - width()) / 2;
+        int y = (screenGeometry.height() - height()) / 2;
+        this->move(x, y);
+    }
 }
 
 void StartApp::configure() {
@@ -34,13 +44,13 @@ void StartApp::signal_slot() {
 }
 
 void StartApp::csv_file() {
-    this->user.add_user_repo(new CSVRepo<Elem>(path + "\\watch_list.csv"));
+    this->user.add_user_repo(new CSVRepo<Elem>(R"()"));//add your watch list csv file path
     this->gui.show();
     this->close();
 }
 
 void StartApp::html_file() {
-    this->user.add_user_repo(new HTMLRepo<Elem>(path + "\\watch_list.html"));;
+    this->user.add_user_repo(new HTMLRepo<Elem>(R"()"));//add your watch list html file path
     this->gui.show();
     this->close();
 }
