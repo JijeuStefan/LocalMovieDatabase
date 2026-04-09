@@ -2,7 +2,7 @@
 
 ## 📋 Description
 
-**Local Movie Database** is a **C++** + **Qt** application for exploring and managing a local movie collection. Users can search, watch, and organize movies, while admins can manage the entire repository with ease. Admins can manage the entire repository by adding, removing, or updating movies. The app combines a clean GUI with practical features like IMDb links, watch lists, and export options.
+**Local Movie Database** is a **C++** and **Qt** application for exploring and managing a local movie collection. Users can search, watch, and organize movies, while admins can manage the entire repository with ease. Admins can manage the entire repository by adding, removing, or updating movies. The app combines a clean GUI with practical features like IMDb links, watch lists, and export options.
 
 This application was developed as a learning project to practice the C++ programming language, Object-Oriented Programming (OOP), and the Model-View-Controller (MVC) architecture.
 
