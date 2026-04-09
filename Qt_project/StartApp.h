@@ -22,14 +22,11 @@ typedef Movie Elem;
 
 class StartApp: public QWidget{
 private:
-    FileRepo<Elem>& repo;
-    UserRepo<Elem>* user_repo = nullptr;
-    User<Elem> user = User<Elem>(repo,user_repo);
-    Admin<Elem> admin = Admin<Elem>(repo,user);
-    GUI<Elem> gui = GUI<Elem>(admin,user);
+    User<Elem> user;
+    Admin<Elem> admin;
+    GUI<Elem> gui;
 
     std::string path;
-
 private:
     QHBoxLayout* hlayout;
     QPushButton* csv;

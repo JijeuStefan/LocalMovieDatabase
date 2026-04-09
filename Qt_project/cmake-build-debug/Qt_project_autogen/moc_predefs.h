@@ -79,6 +79,7 @@
 #define __WCHAR_MIN__ 0
 #define __INT64_C(c) c ## LL
 #define __GCC_ATOMIC_POINTER_LOCK_FREE 2
+#define _UNICODE 1
 #define __FLT32X_MANT_DIG__ 53
 #define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
 #define __cpp_aligned_new 201606L
@@ -106,6 +107,7 @@
 #define __INT_WIDTH__ 32
 #define __SIZEOF_LONG__ 4
 #define __UINT16_C(c) c
+#define UNICODE 1
 #define __DECIMAL_DIG__ 21
 #define __FLT64_EPSILON__ 2.22044604925031308084726333618164062e-16F64
 #define __INT16_MAX__ 0x7fff
@@ -212,7 +214,6 @@
 #define __GCC_ATOMIC_INT_LOCK_FREE 2
 #define __FLT128_MAX_EXP__ 16384
 #define __FLT32_MANT_DIG__ 24
-#define _WIN32_WINNT 0x0601
 #define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define SIZEOF_DPTR (sizeof(void*))
 #define __cpp_aggregate_bases 201603L

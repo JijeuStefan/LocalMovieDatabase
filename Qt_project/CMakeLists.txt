@@ -6,13 +6,9 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "") //set the path for the cmake located in the Qt directory 
+set(CMAKE_PREFIX_PATH "") #put your Qt folder path
 
-find_package(Qt6 COMPONENTS
-        Core
-        Gui
-        Widgets
-        REQUIRED)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 
 add_executable(Qt_project main.cpp
         StartApp.h
@@ -34,10 +30,11 @@ add_executable(Qt_project main.cpp
         Service/User.h
         View/GUI.h
         View/AdminGUI.h View/UserGUI.h)
+
 target_link_libraries(Qt_project
-        Qt::Core
-        Qt::Gui
-        Qt::Widgets
+        Qt6::Core
+        Qt6::Gui
+        Qt6::Widgets
         )
 
 if (WIN32)

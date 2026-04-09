@@ -13,17 +13,17 @@ template <typename Elem>
 class GUI: public QWidget{
 private:
     AdminGUI<Elem>* admin_widget;
-    UserGUI<Elem>*  user_widget;
+    UserGUI<Elem>* user_widget;
 
 private:
-    QVBoxLayout* vlayout;
+    QHBoxLayout* hlayout;
     QPushButton* admin_btn;
     QPushButton* user_btn;
     void configure();
     void signal_slot();
 
 public:
-    explicit GUI(Admin<Elem>& admin , User<Elem>& user);
+    explicit GUI(Admin<Elem>& admin, User<Elem>& user);
 
     void show_Admin();
 
@@ -44,11 +44,27 @@ GUI<Elem>::GUI(Admin<Elem> &admin, User<Elem> &user) {
 
 template<typename Elem>
 void GUI<Elem>::configure() {
-    this->vlayout = new QVBoxLayout{this};
+    auto* main_layout = new QVBoxLayout{this};
+
+
+    this->hlayout = new QHBoxLayout{};
+
     this->admin_btn = new QPushButton{"Admin"};
     this->user_btn = new QPushButton{"User"};
-    this->vlayout->addWidget(this->admin_btn);
-    this->vlayout->addWidget(this->user_btn);
+
+
+    this->admin_btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    this->user_btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+
+    this->hlayout->addWidget(this->admin_btn);
+    this->hlayout->addWidget(this->user_btn);
+
+    main_layout->addLayout(this->hlayout);
+
+    main_layout->setStretch(0, 1);
+    this->hlayout->setStretch(0, 1);
+    this->hlayout->setStretch(1, 1);
 }
 
 template<typename Elem>

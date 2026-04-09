@@ -2,6 +2,8 @@
 #define QT_PROJECT_USERGUI_H
 
 #include <QWidget>
+#include <QDesktopServices>
+#include <QUrl>
 #include "../Service/User.h"
 #include <windows.h>
 
@@ -57,7 +59,9 @@ private:
 
     void update_movie();
 
-    void open_URL(const char* linkChar);
+    void open_URL(const QString& url);
+
+    void open_watchlist_file();
 
     void exit_user();
 
@@ -77,6 +81,8 @@ UserGUI<Elem>::UserGUI(User<Elem> &user, QWidget *parent):user{user}, parent{par
 
 template<typename Elem>
 void UserGUI<Elem>::configure() {
+    this->setWindowTitle("User");
+    this->resize(800, 600);
     this->hlayout = new QHBoxLayout{this};
 
     this->search_btn = new QPushButton{"Search"};
@@ -152,7 +158,7 @@ void UserGUI<Elem>::signal_slot() {
         this->remove_movie();
         this->popup->close();
     });
-    QObject::connect(this->open_btn,&QPushButton::clicked, [this](){open_URL(this->user.return_File().c_str());});
+    QObject::connect(this->open_btn,&QPushButton::clicked, this, &UserGUI<Elem>::open_watchlist_file);
     QObject::connect(this->exit_btn,&QPushButton::clicked, this, &UserGUI<Elem>::exit_user);
 }
 
@@ -238,8 +244,14 @@ void UserGUI<Elem>::update_movie() {
 
 
 template<typename Elem>
-void UserGUI<Elem>::open_URL(const char* linkChar) {
-    ShellExecute(nullptr, nullptr,linkChar , nullptr, nullptr, SW_SHOWNORMAL);
+void UserGUI<Elem>::open_URL(const QString& url) {
+    QDesktopServices::openUrl(QUrl(url));
+}
+
+template<typename Elem>
+void UserGUI<Elem>::open_watchlist_file() {
+    QString path = QString::fromStdString(this->user.return_File());
+    QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 }
 
 template<typename Elem>

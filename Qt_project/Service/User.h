@@ -12,7 +12,7 @@ private:
     UserRepo<Elem>* user_repo;
 public:
 
-    explicit User(Repo<Elem>& repo, UserRepo<Elem>* user_repo);
+    explicit User(Repo<Elem>& repo, UserRepo<Elem>* user_repo = nullptr);
 
     void add_user_repo(UserRepo<Elem>* userRepo);
 

@@ -56,6 +56,8 @@ AdminGUI<Elem>::AdminGUI(Admin<Elem>& admin, QWidget *parent):admin{admin}, pare
 
 template<typename Elem>
 void AdminGUI<Elem>::configure() {
+    this->setWindowTitle("Admin");
+    this->resize(800, 600);
     this->hlayout = new QHBoxLayout{this};
     this->elems = new QListWidget{};
     hlayout->addWidget(elems);
