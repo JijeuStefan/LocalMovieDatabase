@@ -44,13 +44,13 @@ void StartApp::signal_slot() {
 }
 
 void StartApp::csv_file() {
-    this->user.add_user_repo(new CSVRepo<Elem>(R"()"));//add your watch list csv file path
+    this->user.add_user_repo(new CSVRepo<Elem>(R"(C:\Users\Lenovo\Documents\GitHub\LocalMovieDatabase\Qt_project\watch_list.csv)"));//add your watch list csv file path
     this->gui.show();
     this->close();
 }
 
 void StartApp::html_file() {
-    this->user.add_user_repo(new HTMLRepo<Elem>(R"()"));//add your watch list html file path
+    this->user.add_user_repo(new HTMLRepo<Elem>(R"(C:\Users\Lenovo\Documents\GitHub\LocalMovieDatabase\Qt_project\watch_list.html)"));//add your watch list html file path
     this->gui.show();
     this->close();
 }
