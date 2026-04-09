@@ -9,10 +9,10 @@ This application was developed as a learning project to practice the C++ program
 ## 🎬 Demo
 
 ### 🖥️ User Demo 
-![User Demo](./assets/FindRecipe.gif)
+![User Demo](./assets/UserDemo.gif)
 
 ### ⚙️ Admin Demo 
-![Admin Demo](./assets/IngredientDetection.gif)
+![Admin Demo](./assets/AdminDemo.gif)
 
 ## ✨ Features
 
